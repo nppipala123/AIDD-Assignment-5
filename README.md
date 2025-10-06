@@ -19,6 +19,10 @@ python -m http.server 8000
 ```
 3. Open http://localhost:8000/index.html in your browser.
 
+Repository
+
+- GitHub Repo: https://github.com/nppipala123/AIDD-Assignment-5
+
 Notes & next steps
 - Replace project repository links with specific repos and add real screenshots.
 - For production form handling, add a server-side endpoint or service (e.g., Netlify Forms).
