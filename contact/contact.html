@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script>
+    function showError(input, message){
+      const msg = input.parentElement.querySelector('.error-message');
+      if(msg){ msg.textContent = message || ''; }
+      input.classList.toggle('invalid', Boolean(message));
+      if(message){ input.setAttribute('aria-invalid','true'); }
+      else{ input.removeAttribute('aria-invalid'); }
+    }
+
+    function validateForm(e){
+      const form = e.target;
+      let valid = true;
+
+      const first = form.first;
+      const last = form.last;
+      const email = form.email;
+      const pw = form.password;
+      const pw2 = form.confirm_password;
+
+      if(!first.value.trim()) { showError(first, 'First name is required.'); valid = false; } else { showError(first); }
+      if(!last.value.trim()) { showError(last, 'Last name is required.'); valid = false; } else { showError(last); }
+      if(!email.validity.valid) { showError(email, 'Enter a valid email address.'); valid = false; } else { showError(email); }
+      if(pw.value.length < 8) { showError(pw, 'Password must be at least 8 characters.'); valid = false; } else { showError(pw); }
+      if(pw2.value !== pw.value) { showError(pw2, 'Passwords must match.'); valid = false; } else { showError(pw2); }
+
+      if(!valid){ e.preventDefault(); }
+      return valid;
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const form = document.getElementById('contactForm');
+      if(!form) return;
+      form.addEventListener('submit', validateForm);
+
+      // Live validation
+      ['first','last','email','password','confirm_password'].forEach(id =>{
+        const input = document.getElementById(id);
+        if(!input) return;
+        input.addEventListener('input', ()=>{
+          if(id === 'confirm_password'){
+            showError(input, input.value === document.getElementById('password').value ? '' : 'Passwords must match.');
+          } else if(id === 'email'){
+            showError(input, input.validity.valid ? '' : 'Enter a valid email address.');
+          } else if(id === 'password'){
+            showError(input, input.value.length >= 8 ? '' : 'Password must be at least 8 characters.');
+          } else {
+            showError(input, input.value.trim() ? '' : 'This field is required.');
+          }
+        });
+      });
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Contact</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+  <a href="../about/about.html">About</a>
+        <a href="../resume/resume.html">Resume</a>
+        <a href="../projects/projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <form id="contactForm" action="../thankyou.html" method="get" novalidate aria-describedby="formHelp">
+        <div class="form-group">
+          <label for="first">First Name</label>
+          <input id="first" name="first" type="text" required aria-required="true">
+          <div class="error-message" aria-live="polite"></div>
+        </div>
+        <div class="form-group">
+          <label for="last">Last Name</label>
+          <input id="last" name="last" type="text" required aria-required="true">
+          <div class="error-message" aria-live="polite"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required pattern=".+@.+\..+" aria-required="true">
+          <div class="error-message" aria-live="polite"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required minlength="8" aria-required="true">
+          <div class="error-message" aria-live="polite"></div>
+        </div>
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password</label>
+          <input id="confirm_password" name="confirm_password" type="password" required minlength="8" aria-required="true">
+          <div class="error-message" aria-live="polite"></div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a></p>
+    </div>
+  </footer>
+</body>
+</html>
