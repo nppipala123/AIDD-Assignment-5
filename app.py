@@ -66,7 +66,7 @@ INDEX_HTML = """<!doctype html>
 
   <footer>
     <div class="container">
-        <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • assignment 5: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
+        <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • Website Repo: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
     </div>
   </footer>
 </body>
@@ -116,7 +116,7 @@ ABOUT_HTML = """<!doctype html>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • assignment 5: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
+      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • Website Repo: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
     </div>
   </footer>
 </body>
@@ -236,7 +236,7 @@ CONTACT_HTML = """<!doctype html>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • assignment 5: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
+      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • Website Repo: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
     </div>
   </footer>
 </body>
@@ -352,7 +352,7 @@ RESUME_HTML = """<!doctype html>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • assignment 5: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
+      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • Website Repo: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
     </div>
   </footer>
 </body>
@@ -380,7 +380,7 @@ THANKYOU_HTML = """<!doctype html>
   </main>
   <footer>
     <div class="container">
-      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • assignment 5: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
+      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • Website Repo: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
     </div>
   </footer>
 </body>
