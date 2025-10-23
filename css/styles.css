@@ -83,6 +83,41 @@ footer{border-top:1px solid rgba(0,0,0,0.04); margin-top:2rem; padding:1.25rem 0
   box-shadow: 0 6px 18px rgba(20,20,30,0.08);
 }
 
+/* Projects grid and card styles */
+.projects-grid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+	gap:1rem;
+	margin-top:1rem;
+}
+.project-card{display:flex; flex-direction:column; padding:0}
+.card-body{padding:1.15rem}
+.project-row{display:flex; gap:1rem; align-items:center}
+.project-meta{flex:1}
+.project-title{margin:0 0 0.35rem 0; font-size:1.125rem}
+.project-desc{margin:0; color:var(--muted)}
+.project-media{width:150px; flex-shrink:0; display:flex; align-items:center; justify-content:center}
+.project-img{max-width:150px; max-height:120px; object-fit:cover; border-radius:6px; box-shadow:0 6px 18px rgba(20,20,30,0.06)}
+.no-image{font-size:0.9rem; color:#8b8b8b; background:#f6f7f9; padding:0.6rem 0.75rem; border-radius:6px}
+
+@media (max-width:700px){
+	.project-row{flex-direction:column; align-items:flex-start}
+	.project-media{width:100%;}
+	.project-img{width:100%; max-width:100%; height:160px; object-fit:cover}
+}
+
+/* Add project form styles */
+.form-card{box-shadow:0 10px 30px rgba(12,22,40,0.06)}
+.form-grid{display:grid; grid-template-columns:1fr 320px; gap:0.75rem}
+.form-group{display:flex; flex-direction:column}
+textarea{padding:0.6rem; border:1px solid #e6e9ef; border-radius:8px; font-family:inherit}
+input[type=text]{padding:0.6rem; border:1px solid #e6e9ef; border-radius:8px}
+.form-actions .btn{min-width:100px}
+
+@media (max-width:820px){
+	.form-grid{grid-template-columns:1fr}
+}
+
 @media (max-width:800px){
 	header .container{flex-direction:column; align-items:flex-start}
 	.hero{flex-direction:column; align-items:center; text-align:center}

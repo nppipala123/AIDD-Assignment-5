@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+  <section>
+    <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <h2>Projects</h2>
+      <a class="btn" href="{{ url_for('add_project') }}">Add Project</a>
+    </div>
+
+    <div class="projects-grid">
+      {% for p in projects %}
+        <article class="project-card card">
+          <div class="card-body">
+            <div class="project-row">
+              <div class="project-meta">
+                <h3 class="project-title">{{ p.Title }}</h3>
+                <p class="project-desc">{{ p.Description }}</p>
+              </div>
+
+              <div class="project-media">
+                {% if p.Image %}
+                  <img class="project-img" src="{{ url_for('static', filename='images/' ~ p.Image) }}" alt="{{ p.Title }} image">
+                {% else %}
+                  <div class="no-image">No image</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </article>
+      {% else %}
+        <p class="center">No projects found. Add one with the "Add Project" button.</p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
+
+

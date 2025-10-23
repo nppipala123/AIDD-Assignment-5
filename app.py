@@ -1,4 +1,5 @@
-from flask import Flask, Response
+from flask import Flask, Response, render_template, request, redirect, url_for
+from DAL import getAllProjects, saveProjectDB  # type: ignore
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
@@ -243,59 +244,7 @@ CONTACT_HTML = """<!doctype html>
 """
 
 
-# Projects page HTML as a single string
-PROJECTS_HTML = """<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>Projects</h1>
-      <nav>
-        <a href="/">Home</a>
-  <a href="/about">About</a>
-        <a href="/resume">Resume</a>
-        <a href="/projects" class="active">Projects</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section>
-      <article class="project card">
-        <img src="/images/download.png" alt="Workday Reporting Automation screenshot">
-        <div class="card-body">
-          <h2>Workday Reporting Automation</h2>
-          <p>Automated custom Workday reports and APIs to streamline HR data exchanges and eliminate manual work. Delivered reusable integrations and reduced manual handoffs across teams.</p>
-          <p><a href="https://github.com/nppipala123" target="_blank" rel="noopener">Repository</a></p>
-        </div>
-      </article>
-
-      <article class="project card">
-        <img src="/images/download.jpg" alt="Power BI Quality Dashboards screenshot">
-        <div class="card-body">
-          <h2>Power BI Quality Dashboards</h2>
-          <p>Power BI dashboards built from SQL Server extracts to surface manufacturing quality issues and trends. Enabled shop‑floor teams to recognize material issues 35% more effectively.</p>
-          <p><a href="https://github.com/nppipala123" target="_blank" rel="noopener">Repository</a></p>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Nicholas Pipala • <a href="https://github.com/nppipala123">GitHub: nppipala123</a> • <a href="mailto:nppipala@iu.edu">nppipala@iu.edu</a> • assignment 5: <a href="https://github.com/nppipala123/AIDD-Assignment-5">https://github.com/nppipala123/AIDD-Assignment-5</a></p>
-    </div>
-  </footer>
-</body>
-</html>
-"""
+## Remove hardcoded Projects HTML; use templates instead
 
 
 # Resume page HTML as a single string
@@ -465,12 +414,26 @@ def about_html() -> Response:
 
 @app.route('/projects')
 def projects() -> Response:
-    return _html_response(PROJECTS_HTML)
+    projects_list = getAllProjects()
+    return Response(render_template('projects.html', projects=projects_list), mimetype='text/html')
 
 
 @app.route('/projects/projects.html')
 def projects_html() -> Response:
-    return _html_response(PROJECTS_HTML)
+    return redirect(url_for('projects'))
+
+
+@app.route('/projects/add', methods=['GET','POST'])
+def add_project() -> Response:
+    if request.method == 'GET':
+        return Response(render_template('add_project.html'), mimetype='text/html')
+    # POST
+    title = request.form.get('title', '').strip()
+    description = request.form.get('description', '').strip()
+    image = request.form.get('image', '').strip()
+    if title and description:
+        saveProjectDB(title, description, image)
+    return redirect(url_for('projects'))
 
 
 @app.route('/resume')
